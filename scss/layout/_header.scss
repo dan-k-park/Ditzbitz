@@ -21,19 +21,17 @@
   .primary-nav {
     list-style: none;
     padding: 0;
+
     margin: 0;
 
-    &:first-child {
-      border-top: 1px solid hsl(0, 0%, 92%);
-    }
     &__link {
       display: inline-block;
-      padding-block: u.rem(16);
+      padding-block: u.rem(8);
       &:link,
       &:visited {
         display: inline-block;
 
-        font-size: u.rem(18);
+        font-size: u.rem(20);
         font-weight: 500;
         text-decoration: none;
         color: var(--black);
@@ -66,6 +64,10 @@
         transform: translateX(0%);
       }
     }
+
+    @include u.for-tablet-portrait-up {
+      gap: u.rem(24);
+    }
   }
 
   .mobile-nav-toggle {
@@ -77,8 +79,8 @@
       display: block;
 
       position: absolute;
-      top: u.rem(8);
-      right: u.rem(16);
+      top: u.rem(14);
+      right: u.rem(32);
       z-index: 9999;
 
       width: u.rem(32);
