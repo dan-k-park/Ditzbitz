@@ -1,0 +1,27 @@
+@use 'functions' as f;
+
+@mixin for-phone-only {
+  @media (max-width: f.em(599)) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: f.em(600)) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: f.em(900)) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: f.em(1200)) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: f.em(1500)) {
+    @content;
+  }
+}
