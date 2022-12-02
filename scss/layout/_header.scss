@@ -12,10 +12,30 @@
 
   padding-inline: u.rem(24);
 
+  @include u.tablets {
+    height: u.rem(72);
+
+    padding-inline: u.rem(36);
+  }
+
+  @include u.desktops {
+    height: u.rem(80);
+
+    padding-inline: u.rem(48);
+  }
+
   .logo {
     width: u.rem(108);
 
     cursor: pointer;
+
+    @include u.tablets {
+      width: u.rem(144);
+    }
+
+    @include u.desktops {
+      width: u.rem(180);
+    }
   }
 
   .primary-nav {
@@ -27,18 +47,25 @@
     &__link {
       display: inline-block;
       padding-block: u.rem(8);
+
+      font-size: u.rem(20);
+      font-weight: 500;
+      text-decoration: none;
+
       &:link,
       &:visited {
         display: inline-block;
 
-        font-size: u.rem(20);
-        font-weight: 500;
-        text-decoration: none;
         color: var(--black);
+      }
+
+      @include u.small-tablets {
+        font-size: clamp(1.125rem, 0.846rem + 0.83vw, 1.375rem);
+        font-weight: 600;
       }
     }
 
-    @include u.for-phone-only {
+    @include u.phones {
       position: fixed;
       z-index: 999;
       inset: 0 0 0 30%;
@@ -55,27 +82,27 @@
       @supports (backdrop-filter: blur(u.rem(16))) {
         background: hsla(0, 0%, 100% / 0.1);
         backdrop-filter: blur(u.rem(64));
-      }
 
-      transform: translateX(100%);
-      transition: transform 350ms ease-out;
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
 
-      &[data-visible='true'] {
-        transform: translateX(0%);
+        &[data-visible='true'] {
+          transform: translateX(0%);
+        }
       }
     }
 
-    @include u.for-tablet-portrait-up {
+    @include u.small-tablets {
       gap: u.rem(24);
+    }
+
+    @include u.desktops {
+      gap: u.rem(36);
     }
   }
 
   .mobile-nav-toggle {
-    display: none;
-  }
-
-  @include u.for-phone-only {
-    .mobile-nav-toggle {
+    @include u.phones {
       display: block;
 
       position: absolute;
@@ -95,6 +122,10 @@
       &[aria-expanded='true'] {
         background-image: url('../../dist/img/Close.svg');
       }
+    }
+
+    @include u.tablets {
+      display: none;
     }
   }
 }

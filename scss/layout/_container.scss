@@ -1,0 +1,9 @@
+@use '../util' as u;
+
+container {
+  max-width: u.rem(1200);
+
+  padding-inline: u.rem(24);
+
+  margin: 0 auto;
+}
